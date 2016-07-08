@@ -5,7 +5,6 @@ A Vagrant configuration for running SheepShaver over X11 forwarding.
 The directory 'shared' will be available within SheepShaver.
 
 ## Requirements
-- Git
 - PulseAudio
 - Vagrant
 - Virtual Box
@@ -13,7 +12,7 @@ The directory 'shared' will be available within SheepShaver.
 During provisioning, a Mac OS ROM and bootable OS9 image will be downloaded from http://www.redundantrobot.com/. If this site is inaccessible, provisioning will fail.
 
 ## Usage
-Clone this repository; then
+Clone or download this repository; then
 ```
 cd sheepshaver-vagrant
 mkdir shared
