@@ -1,1 +1,4 @@
 .vagrant/*
+data/OS9.img
+data/newworld86.rom.zip
+shared/

@@ -32,4 +32,4 @@ echo 'load-module module-zeroconf-publish' >> /etc/pulse/default.pa
 
 # prepare sheepshaver
 apt-get install -y unzip
-unzip /vagrant/data/SheepShaver_GCC44_SDL_Unix_29-07-2013.zip -d /usr/local/bin/
+unzip -o /vagrant/data/SheepShaver_GCC44_SDL_Unix_29-07-2013.zip -d /usr/local/bin/

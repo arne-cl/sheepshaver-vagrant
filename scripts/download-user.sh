@@ -1,28 +1,24 @@
 #!/bin/bash
 
-# Fetches and verifies rom and boot image
+# Fetches (or copies) and verifies rom and boot image
 
-baseurl="http://www.redundantrobot.com/macemulator/"
 filenames=("newworld86.rom.zip" "OS9.img")
-
-declare -A checksums
-
-checksums=( ["newworld86.rom.zip"]="ded05b02d0973476e8afcdcb199d9130c52b0f13932a881f8dc901ad5de16362" ["OS9.img"]="35e4b0f15c5f7b52f91fe6db10f43cb78cc02ad01390d2c24db7009d182f3f82" )
+baseurl="http://www.redundantrobot.com/macemulator/"
+datadir=/vagrant/data
 
 for filename in "${filenames[@]}"; do
-
-	wget --no-verbose "$baseurl$filename" -O "$filename"
-
-	if [ "$(sha256sum $filename)" != "${checksums[$filename]}  $filename" ]; then
-		echo "$filename checksum mismatch"
-		echo "$(sha256sum $filename)"
-		echo "${checksums[$filename]}  $filename"
-		exit
-	fi
-	echo "$filename OK"
-
-	if [ "$filename" == "newworld86.rom.zip" ]; then
-		unzip "$filename" -d /home/vagrant/
-		rm "$filename"
+	if [ -e $datadir/$filename ]; then
+		cp $datadir/$filename /home/vagrant/
+	else
+		wget --no-verbose "$baseurl$filename" -O "$filename"
 	fi
 done
+
+sha256sum -c /vagrant/data/SHA256SUMS.txt
+
+if [ $? != 0 ]; then
+	exit
+else
+	unzip "newworld86.rom.zip" -d /home/vagrant/
+	rm "newworld86.rom.zip"
+fi
