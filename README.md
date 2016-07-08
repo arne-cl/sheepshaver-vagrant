@@ -13,7 +13,10 @@ The directory 'shared' will be available within SheepShaver.
 During provisioning, a Mac OS ROM and bootable OS9 image will be downloaded from http://www.redundantrobot.com/. If this site is inaccessible, provisioning will fail.
 
 ## Usage
+Clone this repository; then
 ```
+cd sheepshaver-vagrant
+mkdir shared
 vagrant up
 vagrant ssh
 SheepShaver_44_SDL
