@@ -1,16 +1,16 @@
 ## SheepShaver Vagrant
 
-A headless server designed for X11 forwarding, including sound over pulseaudio.
+A Vagrant configuration for running SheepShaver over X11 forwarding.
 
 The directory 'shared' will be available within SheepShaver.
 
 ## Requirements
-- Virtual Box
-- Vagrant
 - Git
+- PulseAudio
+- Vagrant
+- Virtual Box
 
 During provisioning, a Mac OS ROM and bootable OS9 image will be downloaded from http://www.redundantrobot.com/. If this site is inaccessible, provisioning will fail.
-
 
 ## Usage
 ```

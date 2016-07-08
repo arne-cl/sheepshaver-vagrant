@@ -3,7 +3,7 @@
 apt-get update
 apt-get dist-upgrade
 
-# sheepshaver dependencies and unzip (just tarball it instead)
+# sheepshaver dependencies
 apt-get install -y libsdl1.2debian dbus-x11 libxxf86dga1 libxxf86vm1 libesd0
 
 apt-get install -y paprefs pavucontrol pulseaudio-esound-compat
@@ -25,7 +25,7 @@ sysctl vm.mmap_min_addr=0
 echo 'vm.mmap_min_addr=0' >> /etc/sysctl.conf
 systemctl start procps
 
-# not sure if used. maybe we won't have to do it by paprefs if we do this here?
+# alternative: paprefs
 echo 'load-module module-esound-protocol-tcp' >> /etc/pulse/default.pa
 echo 'load-module module-native-protocol-tcp' >> /etc/pulse/default.pa
 echo 'load-module module-zeroconf-publish' >> /etc/pulse/default.pa
