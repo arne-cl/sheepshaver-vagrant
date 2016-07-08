@@ -3,8 +3,8 @@
 # Fetches (or copies) and verifies rom and boot image
 
 filenames=("newworld86.rom.zip" "OS9.img")
-baseurl="http://www.redundantrobot.com/macemulator/"
 datadir=/vagrant/data
+baseurl="http://www.redundantrobot.com/macemulator/"
 
 for filename in "${filenames[@]}"; do
 	if [ -e $datadir/$filename ]; then

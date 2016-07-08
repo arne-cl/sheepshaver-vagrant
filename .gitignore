@@ -1,4 +1,4 @@
-.vagrant/*
-data/OS9.img
-data/newworld86.rom.zip
+.vagrant/
 shared/
+data/newworld86.rom.zip
+data/OS9.img
