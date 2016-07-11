@@ -3,7 +3,6 @@
 A Vagrant configuration for SheepShaver over X11 forwarding.
 
 ## Requirements
-- PulseAudio
 - Vagrant
 - Virtual Box
 

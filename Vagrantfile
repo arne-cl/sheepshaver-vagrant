@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
       vb.customize [
           "modifyvm", :id,
-          "--audio", "pulse",
+          "--audio", "alsa",
           "--audiocontroller", "ac97"
       ]
   #   # Display the VirtualBox GUI when booting the machine
