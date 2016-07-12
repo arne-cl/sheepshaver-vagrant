@@ -50,19 +50,26 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  config.vm.provider "virtualbox" do |vb|
-      vb.customize [
-          "modifyvm", :id,
-          "--audio", "alsa",
-          "--audiocontroller", "ac97"
-      ]
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-      vb.memory = "1024"
-  end
-  #
+      if RUBY_PLATFORM =~ /darwin/
+        config.vm.provider "virtualbox" do |vb|
+          vb.customize [
+            "modifyvm", :id,
+            "--audio", "coreaudio",
+            "--audiocontroller", "ac97"
+          ]
+          vb.memory = "1024"
+        end
+      else
+        config.vm.provider "virtualbox" do |vb|
+          vb.customize [
+            "modifyvm", :id,
+            "--audio", "alsa",
+            "--audiocontroller", "ac97"
+          ]
+          vb.memory = "1024"
+        end
+      end
+
   # View the documentation for the provider you are using for more
   # information on available options.
 
