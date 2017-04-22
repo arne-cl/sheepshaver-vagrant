@@ -2,15 +2,15 @@
 
 # Fetches (or copies) and verifies rom and boot image
 
-filenames=("newworld86.rom.zip" "OS9.img")
+filepaths=("roms/newworld86.rom.zip" "disk_images/OS9.img")
 datadir=/vagrant/data
-baseurl="http://www.redundantrobot.com/macemulator/"
+baseurl="http://www.redundantrobot.com/sheepshaver_files/"
 
-for filename in "${filenames[@]}"; do
-	if [ -e $datadir/$filename ]; then
-		cp $datadir/$filename /home/vagrant/
+for filepath in "${filepaths[@]}"; do
+	if [ -e $datadir/$filepath ]; then
+		cp $datadir/$filepath /home/vagrant/
 	else
-		wget --no-verbose "$baseurl$filename" -O "$filename"
+		wget --no-verbose "$baseurl$filepath" -O "$filepath"
 	fi
 done
 
